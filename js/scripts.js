@@ -1,13 +1,13 @@
 $(document).ready(function(){
-    var size;
-    if($("input:radio[name='size']").is(":checked")){
-        size = $("input[name='size']:checked").val();
-    }
     
+    var size = $("input[name='size']:checked").val();
+    var toppings = $("input[name='toppings']:checked").val();
+    
+
     $("button").click(function(event){
         event.preventDefault();
 
-        alert(size);
+        alert(size+" "+toppings);
     })
     
 });
