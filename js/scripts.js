@@ -21,6 +21,10 @@ function pizzaPrices(){
 
     var newPizza = new pizza(size,toppings,krust);
 
+    newPizza.prototype.order = function() {
+        return this.pizza_size+" sized, "+this.pizza_toppings+" topping, "+this.pizza_krust+" pizza";
+    } 
+
     alert(newPizza.pizza_size+" sized, "+newPizza.pizza_toppings+" topping, "+newPizza.pizza_krust+" pizza");
 
     var prices = [500,600,700,800,900,1000,650,750,850,550,650,750,850,950,1050,1000,1100,1200,950,1050,1150,450,550,650,1150,1250,1350];
