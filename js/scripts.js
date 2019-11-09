@@ -1,13 +1,12 @@
 $(document).ready(function(){
-    
-    var size = $("input[name='size']:checked").val();
-    var toppings = $("input[name='toppings']:checked").val();
-    
-
     $("button").click(function(event){
         event.preventDefault();
 
-        alert(size+" "+toppings);
-    })
+        var size = $("input[name='size']:checked").val();
+        var toppings = $("input[name='toppings']:checked").val();
+        var krust = $("input[name='krust']:checked").val();
+
+        alert(size+" sized, "+toppings+" topping, "+krust+" pizza");
+    });
     
 });
