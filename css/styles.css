@@ -33,3 +33,7 @@
     border-style: solid;
     text-align: center;
 }
+button {
+    float: right;
+    margin-top: 5px;
+}
