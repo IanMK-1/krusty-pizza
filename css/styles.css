@@ -17,3 +17,11 @@
     text-align: center;
     color: rgb(3, 3, 3);  
 }
+.card-header {
+    text-align: center;
+    font-family: 'Raleway', sans-serif;
+    background: transparent;
+    border-color: blue;
+    border-width: 4px;
+    border-style: solid;
+}
