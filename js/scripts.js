@@ -9,8 +9,9 @@ function Price(num){
 
 
 $(document).ready(function(){
-    $("button#add").click(function(event){
-        event.preventDefault();
+    
+    $("button#add").click(function(){
+       
 
         var size = $("input[name='size']:checked").val();
         var toppings = $("input[name='toppings']:checked").val();
@@ -48,26 +49,26 @@ $(document).ready(function(){
                                 "<td id='number'>" + "" + "</td>" +
                                 "<td id='totalprice'>" +total + "</td>" +
                                 "</tr>");
-         
+    });
+        $("button#complete-order").click(function(){
+            $(".delivery").show();
+        });
+        $("button#yes").click(function(){
+            $(".delivery").hide();
+            $(".location").show();
+        });
+        $("button#location-submit").click(function(){
+            $(".location").hide();
+            var location = $("input#yourLocation").val();
+            $("p#text").text("Your pizza will be delivered at "+location);
+            $(".payment").show();
+        });
+        $("button#no").click(function(){
+            $(".delivery").hide();
+            $(".noDelivery").show();
+        });
+        $("input#yourLocation").val("");
         
-    });
-    $("button#complete-order").click(function(){
-        $(".delivery").show();
-    });
-    $("button#yes").click(function(){
-        $(".delivery").hide();
-        $(".location").show();
-    });
-    $("button#location-submit").click(function(){
-        $(".location").hide();
-        var location = $("input#yourLocation").val();
-        $("p#text").text("Your pizza will be delivered at "+location);
-        $(".payment").show();
-    });
-    $("button#no").click(function(){
-        $(".delivery").hide();
-        $(".noDelivery").show();
-    })
 });
 
 
