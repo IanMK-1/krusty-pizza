@@ -7,15 +7,15 @@ function Price(num){
     this.pizza_num = num;
 }
 
+
 $(document).ready(function(){
-    $("button").click(function(event){
+    $("button#add").click(function(event){
         event.preventDefault();
 
         var size = $("input[name='size']:checked").val();
         var toppings = $("input[name='toppings']:checked").val();
         var krust = $("input[name='krust']:checked").val();
-        var pizzaNum = $("#pizza-num").val();
-
+        var pizzaNum = parseInt($("#pizza-num").val());
         
         function order() {  
             return this.pizza_size+" sized, "+this.pizza_toppings+" topping, "+this.pizza_krust+" pizza";
@@ -28,20 +28,35 @@ $(document).ready(function(){
         function tally(){
             return this.pizza_num * pizzaPrices(size,toppings,krust);
         }
-
+        
         Price.prototype.tally = tally;
 
         var number = new Price(pizzaNum); 
 
-        $(".table tbody:last").append("<tr class='table-data'>"+
+        var total = number.tally();
+
+        
+        $("tbody#yourOrder:last").append("<tr class='table-data'>"+
                                 "<td id='order'>" + newPizza.order() + "</td>" + 
                                 "<td id='number'>" + pizzaNum + "</td>" +
-                                "<td id='price'>" + number.tally() + "</td>" +
+                                "<td id='price'>"+total+"</td>" +
+                                "</tr>");
+        
+                                                     
+        $("tbody#total:last").empty().append("<tr class='table-data'>"+
+                                "<td id='order'>" + "Total Price:" + "</td>" + 
+                                "<td id='number'>" + "" + "</td>" +
+                                "<td id='totalprice'>" +total + "</td>" +
                                 "</tr>");
          
+        
+    });
+    $("button#complete-order").click(function(){
+        $(".delivery").show();
     });
     
 });
+
 
 function pizzaPrices(size,toppings,krust){
     
