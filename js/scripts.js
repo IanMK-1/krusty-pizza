@@ -11,6 +11,7 @@ $(document).ready(function(){
         var size = $("input[name='size']:checked").val();
         var toppings = $("input[name='toppings']:checked").val();
         var krust = $("input[name='krust']:checked").val();
+        var pizzaNum = $("#pizza-num").val();
 
         
         function order() {  
@@ -25,6 +26,11 @@ $(document).ready(function(){
 
         alert(pizzaPrices(size,toppings,krust));
 
+        $(".table tbody").last().append("<tr class='table-data'>"+
+                                "<td id='order'>" + newPizza.order() + "</td>" + 
+                                "<td id='number'>" + pizzaNum + "</td>" +
+                                "<td id='price'>" + pizzaPrices(size,toppings,krust) + "</td>" +
+                                "</tr>");
          
     });
     

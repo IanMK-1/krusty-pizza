@@ -33,6 +33,9 @@
     border-style: solid;
     text-align: center;
 }
+#pizza-num {
+    margin-top: 15px;
+}
 button {
     float: right;
     margin-top: 5px;
