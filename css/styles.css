@@ -58,3 +58,8 @@ button#add {
 button#location-submit {
     margin-top: 10px;
 }
+.payment {
+    margin-top: 20px;
+    text-align: center;
+    display: none;
+}

@@ -58,7 +58,12 @@ $(document).ready(function(){
         $(".delivery").hide();
         $(".location").show();
     });
-    
+    $("button#location-submit").click(function(){
+        $(".location").hide();
+        var location = $("input#yourLocation").val();
+        $("p#text").text("Your pizza will be delivered at "+location);
+        $(".payment").show();
+    });
 });
 
 
