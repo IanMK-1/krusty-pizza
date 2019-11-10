@@ -63,3 +63,8 @@ button#location-submit {
     text-align: center;
     display: none;
 }
+.noDelivery {
+    margin-top: 20px;
+    text-align: center;
+    display: none;
+}
