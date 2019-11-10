@@ -3,6 +3,9 @@ function Pizza(the_size,the_toppings,the_krust){
     this.pizza_toppings = the_toppings;
     this.pizza_krust = the_krust;
 }
+function Price(num){
+    this.pizza_num = num;
+}
 
 $(document).ready(function(){
     $("button").click(function(event){
@@ -22,14 +25,18 @@ $(document).ready(function(){
 
         var newPizza = new Pizza(size,toppings,krust);
 
-        alert(newPizza.order());
+        function tally(){
+            return this.pizza_num * pizzaPrices(size,toppings,krust);
+        }
 
-        alert(pizzaPrices(size,toppings,krust));
+        Price.prototype.tally = tally;
+
+        var number = new Price(pizzaNum); 
 
         $(".table tbody:last").append("<tr class='table-data'>"+
                                 "<td id='order'>" + newPizza.order() + "</td>" + 
                                 "<td id='number'>" + pizzaNum + "</td>" +
-                                "<td id='price'>" + pizzaPrices(size,toppings,krust) + "</td>" +
+                                "<td id='price'>" + number.tally() + "</td>" +
                                 "</tr>");
          
     });
@@ -129,3 +136,4 @@ function pizzaPrices(size,toppings,krust){
     return price;
   
 }
+
