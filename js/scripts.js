@@ -1,4 +1,4 @@
-function pizza(the_size,the_toppings,the_krust){
+function Pizza(the_size,the_toppings,the_krust){
     this.pizza_size = the_size;
     this.pizza_toppings = the_toppings;
     this.pizza_krust = the_krust;
@@ -8,25 +8,30 @@ $(document).ready(function(){
     $("button").click(function(event){
         event.preventDefault();
 
-        pizzaPrices();
+        var size = $("input[name='size']:checked").val();
+        var toppings = $("input[name='toppings']:checked").val();
+        var krust = $("input[name='krust']:checked").val();
+
         
+        function order() {  
+            return this.pizza_size+" sized, "+this.pizza_toppings+" topping, "+this.pizza_krust+" pizza";
+        }
+        
+        Pizza.prototype.order = order;
+
+        var newPizza = new Pizza(size,toppings,krust);
+
+        alert(newPizza.order());
+
+        alert(pizzaPrices(size,toppings,krust));
+
+         
     });
     
 });
 
-function pizzaPrices(){
-    var size = $("input[name='size']:checked").val();
-    var toppings = $("input[name='toppings']:checked").val();
-    var krust = $("input[name='krust']:checked").val();
-
-    var newPizza = new pizza(size,toppings,krust);
-
-    newPizza.prototype.order = function() {
-        return this.pizza_size+" sized, "+this.pizza_toppings+" topping, "+this.pizza_krust+" pizza";
-    } 
-
-    alert(newPizza.pizza_size+" sized, "+newPizza.pizza_toppings+" topping, "+newPizza.pizza_krust+" pizza");
-
+function pizzaPrices(size,toppings,krust){
+    
     var prices = [500,600,700,800,900,1000,650,750,850,550,650,750,850,950,1050,1000,1100,1200,950,1050,1150,450,550,650,1150,1250,1350];
     
     var price;
@@ -115,5 +120,6 @@ function pizzaPrices(){
         price = prices[17];
     }
 
-    alert(price);
+    return price;
+  
 }
