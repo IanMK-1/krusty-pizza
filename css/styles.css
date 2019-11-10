@@ -50,3 +50,11 @@ button#add {
     margin-top: 15px;
     float: right;
 }
+.location {
+    margin-top: 20px;
+    text-align: center;
+    display: none;
+}
+button#location-submit {
+    margin-top: 10px;
+}

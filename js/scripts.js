@@ -54,6 +54,10 @@ $(document).ready(function(){
     $("button#complete-order").click(function(){
         $(".delivery").show();
     });
+    $("button#yes").click(function(){
+        $(".delivery").hide();
+        $(".location").show();
+    });
     
 });
 
