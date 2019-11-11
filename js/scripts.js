@@ -71,11 +71,12 @@ $(document).ready(function(){
             $("p#text").text("Your pizza will be delivered to "+location + ".");
             $(".payment").show();
         });
+        $("input#yourLocation").val("");
         $("button#no").click(function(){
             $(".delivery").hide();
             $(".noDelivery").show();
         });
-        $("input#yourLocation").val("");
+        
         
 });
 
