@@ -9,9 +9,10 @@ function Price(num){
 
 
 $(document).ready(function(){
-    
-    $("button#add").click(function(){
-       
+    var totalPrice = 0;
+
+    $("button#add").click(function(event){
+        event.preventDefault();
 
         var size = $("input[name='size']:checked").val();
         var toppings = $("input[name='toppings']:checked").val();
@@ -36,6 +37,8 @@ $(document).ready(function(){
 
         var total = number.tally();
 
+        totalPrice += total;
+
         
         $("tbody#yourOrder:last").append("<tr class='table-data'>"+
                                 "<td id='order'>" + newPizza.order() + "</td>" + 
@@ -47,11 +50,16 @@ $(document).ready(function(){
         $("tbody#total:last").empty().append("<tr class='table-data'>"+
                                 "<td id='order'>" + "Total Price:" + "</td>" + 
                                 "<td id='number'>" + "" + "</td>" +
-                                "<td id='totalprice'>" +total + "</td>" +
+                                "<td id='totalprice'>" +totalPrice + "</td>" +
                                 "</tr>");
+
+        $(".toPay1").text(totalPrice);
+        $(".toPay").text(totalPrice+200);
+
     });
         $("button#complete-order").click(function(){
             $(".delivery").show();
+            $("button#complete-order").attr("disabled", true);
         });
         $("button#yes").click(function(){
             $(".delivery").hide();
@@ -60,7 +68,7 @@ $(document).ready(function(){
         $("button#location-submit").click(function(){
             $(".location").hide();
             var location = $("input#yourLocation").val();
-            $("p#text").text("Your pizza will be delivered at "+location);
+            $("p#text").text("Your pizza will be delivered to "+location + ".");
             $(".payment").show();
         });
         $("button#no").click(function(){
